@@ -2,5 +2,5 @@
 
 str = "Holberton School"
 
-print(str * 3, end='\n\n'); print(str[:9])
+print(str * 3, end='\n'); print(str[:9])
 
