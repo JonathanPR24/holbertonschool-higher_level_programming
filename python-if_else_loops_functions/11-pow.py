@@ -7,4 +7,5 @@ def pow(a, b):
     else:
         for _ in range(b):
             result *= a
-    return result
+return "{:.20f}".format(result)
+
