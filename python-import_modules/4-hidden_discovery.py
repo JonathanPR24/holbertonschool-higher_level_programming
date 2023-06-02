@@ -10,4 +10,3 @@ if __name__ == "__main__":
 
     for name in sorted_names:
         print(name)
-
