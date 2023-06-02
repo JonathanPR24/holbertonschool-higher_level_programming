@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    from calculator_1 import add, sub, mul, div
+import sys
+sys.path.append('.')
+import calculator_1
 
-    a = 10
-    b = 5
+a = 10
+b = 5
 
-    addition_result = add(a, b)
-    subtraction_result = sub(a, b)
-    multiplication_result = mul(a, b)
-    division_result = div(a, b)
+add_result = calculator_1.add(a, b)
+sub_result = calculator_1.sub(a, b)
+mul_result = calculator_1.mul(a, b)
+div_result = calculator_1.div(a, b)
 
-    print("Result of addition: {}".format(addition_result))
-    print("Result of subtraction: {}".format(subtraction_result))
-    print("Result of multiplication: {}".format(multiplication_result))
-    print("Result of division: {}".format(division_result))
+print("{} + {} = {}".format(a, b, add_result))
+print("{} - {} = {}".format(a, b, sub_result))
+print("{} * {} = {}".format(a, b, mul_result))
+print("{} / {} = {}".format(a, b, div_result))
