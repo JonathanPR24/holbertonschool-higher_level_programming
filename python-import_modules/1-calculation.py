@@ -10,7 +10,7 @@ if __name__ == "__main__":
     multiplication_result = mul(a, b)
     division_result = div(a, b)
 
-    print("Result of addition: " + str(addition_result))
-    print("Result of subtraction: " + str(subtraction_result))
-    print("Result of multiplication: " + str(multiplication_result))
-    print("Result of division: " + str(division_result))
+    print("Result of addition: {}".format(addition_result))
+    print("Result of subtraction: {}".format(subtraction_result))
+    print("Result of multiplication: {}".format(multiplication_result))
+    print("Result of division: {}".format(division_result))
