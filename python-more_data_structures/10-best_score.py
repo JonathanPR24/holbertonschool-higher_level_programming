@@ -4,7 +4,10 @@ def best_score(a_dictionary):
     if not a_dictionary:
         return None
 
-    # Initialize variables to keep track of the maximum score and its corresponding key
+    """
+    Initialize variables to keep track of the
+    maximum score and its corresponding key
+    """
     max_score = float('-inf')
     max_key = None
 
