@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-def print_sorted_dictionary(a_dictionary):
-    # Get the sorted keys of the dictionary
-    sorted_keys = sorted(a_dictionary.keys())
+def update_dictionary(a_dictionary, key, value):
+    # Update the value if the key already exists in the dictionary
+    if key in a_dictionary:
+        a_dictionary[key] = value
+    # Add the key/value pair if the key doesn't exist in the dictionary
+    else:
+        a_dictionary[key] = value
 
-    # Iterate over each key and print the key-value pair
-    for key in sorted_keys:
-        value = a_dictionary[key]
-        print(f"{key}: {value}")
+    return a_dictionary
