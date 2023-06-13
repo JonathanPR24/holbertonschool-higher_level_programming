@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 class Square:
     """
-    This class represents a square shape.
+    This class represents a square.
 
     Attributes:
         __size (int): The size of the square.
@@ -13,15 +13,14 @@ class Square:
 
         Args:
             size (int, optional): The size of the square. Defaults to 0.
-        
+
         Raises:
             TypeError: If the size is not an integer.
             ValueError: If the size is less than 0.
         """
-        if isinstance(size, int):
-            if size >= 0:
-                self.__size = size
-            else:
-                raise ValueError("size must be >= 0")
+        if not isinstance(size, int):
+            raise TypeError('size must be an integer')
+        elif size < 0:
+            raise ValueError('size must be >= 0')
         else:
-            raise TypeError("size must be an integer")
+            self.__size = size
