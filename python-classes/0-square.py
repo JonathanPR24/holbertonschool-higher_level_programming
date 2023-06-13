@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-class Square:
     """
     This class represents a square.
-
+    """
+class Square:
+    """
     Attributes:
         No attributes are defined for this class.
     """
