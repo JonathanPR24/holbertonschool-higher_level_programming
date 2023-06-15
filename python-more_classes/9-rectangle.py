@@ -18,7 +18,8 @@ class Rectangle:
 
     print_symbol = "#"
     """
-    Class attribute used as the symbol for string representation of the rectangle.
+    Class attribute used as the symbol for string
+    representation of the rectangle.
     Initialized to "#".
     """
 
@@ -123,7 +124,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle that can be used to recreate an instance.
+        Returns a string representation of the rectangle that
+        can be used to recreate an instance.
 
         Returns:
             str: String representation of the rectangle.
@@ -142,7 +144,8 @@ class Rectangle:
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """
-        Compares two Rectangle instances and returns the one with the bigger area.
+        Compares two Rectangle instances and returns
+        the one with the bigger area.
 
         Args:
             rect_1 (Rectangle): First rectangle to compare.
