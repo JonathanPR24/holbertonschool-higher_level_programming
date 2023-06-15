@@ -9,7 +9,7 @@ def text_indentation(text):
     Prints a text with 2 new lines after each of these characters: '.', '?', and ':'.
 
     Args:
-        text (str): The text to be indented.
+        text: The text to print. Must be a string.
 
     Raises:
         TypeError: If text is not a string.
@@ -18,19 +18,7 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    punctuation_marks = [".", "?", ":"]
-    indented_lines = []
-    current_line = ""
+    for char in ".:?":
+        text = text.replace(char, "{}\n\n".format(char))
 
-    for char in text:
-        current_line += char
-
-        if char in punctuation_marks:
-            indented_lines.append(current_line.strip())
-            indented_lines.append("")
-            current_line = ""
-
-    if current_line:
-        indented_lines.append(current_line.strip())
-
-    print("\n".join(indented_lines))
+    print("\n".join(line.strip() for line in text.split("\n")))
