@@ -13,9 +13,9 @@ def matrix_divided(matrix, div):
               2 decimal places.
 
     Raises:
-        TypeError: If matrix is not a list of lists of integers/floats,
-                   or if each row of the matrix does not have the same size,
-                   or if div is not a number.
+        TypeError: If matrix is not a matrix (list of lists) of integers/floats
+                   or if each row of the matrix does not have the same size.
+        TypeError: If div is not a number.
         ZeroDivisionError: If div is equal to 0.
     """
     if not isinstance(matrix, list) or any(
