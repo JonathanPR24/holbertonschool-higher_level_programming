@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-    """
-    A class that represents a rectangle.
-    
-    Attributes:
-        No attributes defined.
-    """
+"""
+This module will provide a class
+that define an rectangle
+"""
+
 
 class Rectangle:
     """
-    Initializes a Rectangle object.
-
-    Args:
-        No arguments.
+        An empty class that define a rectagle
     """
     pass
