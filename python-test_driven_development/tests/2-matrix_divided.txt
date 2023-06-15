@@ -20,4 +20,10 @@ Divides all elements of a matrix by a given divisor.
 >>> matrix = [[1.5, 2.3], [4.7, 5.8]]
 >>> matrix_divided(matrix, 1.5)
 [[1.0, 1.53], [3.13, 3.87]]
+
+>>> matrix = [[3, "9"], [15, 3]]
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 """
