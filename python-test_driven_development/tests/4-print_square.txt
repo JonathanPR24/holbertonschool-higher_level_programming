@@ -1,0 +1,29 @@
+"""
+Test cases:
+
+Prints a square of size 4:
+####
+####
+####
+####
+
+Prints a square of size 10:
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+Prints an empty square (size 0):
+
+Prints a single character square (size 1):
+#
+
+Raises a ValueError for negative size:
+size must be >= 0
+"""
