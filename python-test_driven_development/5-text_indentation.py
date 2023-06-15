@@ -15,14 +15,16 @@ def text_indentation(text):
         TypeError: If text is not a string.
 
     Note:
-        There should be no space at the beginning or
-        at the end of each printed line.
+        There should be no space at the beginning or at the end of each printed line.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     punctuation_marks = [".", "?", ":"]
+    indented_text = ""
     for char in text:
-        print(char, end="")
+        indented_text += char
         if char in punctuation_marks:
-            print("\n\n", end="")
+            indented_text += "\n\n"
+
+    print(indented_text.strip())
