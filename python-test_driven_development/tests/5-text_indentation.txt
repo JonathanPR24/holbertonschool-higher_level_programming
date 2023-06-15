@@ -1,0 +1,16 @@
+"""
+>>> import io
+>>> import sys
+>>> sys.stdout = io.StringIO()
+>>> text_indentation("Hello. How are you? Fine: thank you.")
+>>> sys.stdout.getvalue()
+'Hello.\n\nHow are you?\n\nFine:\n\nthank you.\n'
+>>> sys.stdout = io.StringIO()
+>>> text_indentation("Hello")
+>>> sys.stdout.getvalue()
+'Hello\n'
+>>> text_indentation(12)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+"""
