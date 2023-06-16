@@ -1,9 +1,5 @@
-#!/usr/bin/python3
-"""Unittest for the function max_integer(list=[])
-"""
 import unittest
-max_integer = __import__('6-max_integer').max_integer
-
+from max_integer import max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """Tests to get the max integer in a list"""
@@ -14,7 +10,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_max_int_empty(self):
         """Tests if list is empty"""
-        self.assertEqual(max_integer([]), None)
+        self.assertIsNone(max_integer([]))
 
     def test_max_int_neg(self):
         """Tests if list has a negative integer"""
