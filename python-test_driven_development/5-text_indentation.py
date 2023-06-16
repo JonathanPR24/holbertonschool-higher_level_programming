@@ -23,6 +23,7 @@ def text_indentation(text):
 
     punctuation_marks = [".", "?", ":"]
     for char in text:
+        char = char.strip()
         print(char, end="")
         if char in punctuation_marks:
             print("\n\n", end="")
