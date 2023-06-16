@@ -15,15 +15,24 @@ def text_indentation(text):
         TypeError: If text is not a string.
 
     Note:
-        There should be no space at the beginning or
-        at the end of each printed line.
+        This function indents the text by adding two new lines after each occurrence of the characters ".", "?", and ":".
+        Leading and trailing spaces are stripped from each character before printing.
+
+    Example:
+        >>> text_indentation("Hello! How are you? I am fine.")
+        Hello!
+        How are you?
+        I am fine.
+
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     punctuation_marks = [".", "?", ":"]
-    for char in text:
+    for i, char in enumerate(text):
         char = char.strip()
         print(char, end="")
-        if char in punctuation_marks:
-            print("\n\n", end="")
+        if char in punctuation_marks and i < len(text) - 1:
+            next_char = text[i + 1]
+            if not next_char.isspace():
+                print("\n\n", end="")
