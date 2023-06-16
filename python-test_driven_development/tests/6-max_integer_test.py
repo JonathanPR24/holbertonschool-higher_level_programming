@@ -1,27 +1,33 @@
+#!/usr/bin/python3
 import unittest
 from max_integer import max_integer
 
-
 class MaxIntegerTestCase(unittest.TestCase):
-    def test_max_integer(self):
-        # Test case 1: Regular list
-        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-
-        # Test case 2: List with unordered elements
-        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
-
-        # Test case 3: List with negative numbers
-        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
-
-        # Test case 4: List with duplicate maximum values
-        self.assertEqual(max_integer([1, 2, 4, 4]), 4)
-
-        # Test case 5: Empty list
+    def test_empty_list(self):
         self.assertIsNone(max_integer([]))
 
-        # Test case 6: List with a single element
+    def test_single_element_list(self):
         self.assertEqual(max_integer([5]), 5)
 
+    def test_positive_numbers(self):
+        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
+        self.assertEqual(max_integer([10, 2, 8, 4, 6]), 10)
+        self.assertEqual(max_integer([1, 2, 3, 9, 7]), 9)
+
+    def test_negative_numbers(self):
+        self.assertEqual(max_integer([-1, -2, -3, -4, -5]), -1)
+        self.assertEqual(max_integer([-10, -2, -8, -4, -6]), -2)
+        self.assertEqual(max_integer([-1, -2, -3, -9, -7]), -1)
+
+    def test_mixed_numbers(self):
+        self.assertEqual(max_integer([-1, 2, -3, 4, -5]), 4)
+        self.assertEqual(max_integer([10, -2, 8, -4, 6]), 10)
+        self.assertEqual(max_integer([-1, 2, -3, 9, -7]), 9)
+
+    def test_duplicate_numbers(self):
+        self.assertEqual(max_integer([2, 2, 2, 2]), 2)
+        self.assertEqual(max_integer([-3, -3, -3, -3]), -3)
+        self.assertEqual(max_integer([0, 0, 0, 0]), 0)
 
 if __name__ == '__main__':
     unittest.main()
