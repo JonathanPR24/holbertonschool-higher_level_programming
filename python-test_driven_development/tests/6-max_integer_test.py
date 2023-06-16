@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+Unittest for the function max_integer(list=[])
+"""
+
+
 import unittest
 from max_integer import max_integer
 
