@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module that contains a class BaseGeometry, a class Rectangle, and a class Square"""
+"""Module that contains a class BaseGeometry, a class
+Rectangle, and a class Square"""
 
 
 class BaseGeometry:
