@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 This module contains a function for reading a text file and printing its content to stdout.
