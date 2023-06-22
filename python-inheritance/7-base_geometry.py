@@ -8,7 +8,7 @@ class BaseGeometry:
 
     def area(self):
         """Method that raises an Exception with a message"""
-        raise NotImplementedError("area() is not implemented")
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """Method that validates value"""
@@ -23,7 +23,6 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """Initialization method for Rectangle"""
-        super().__init__()
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
