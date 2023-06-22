@@ -4,7 +4,7 @@
 
 class BaseGeometry:
     """
-    Base class representing geometry.
+    A class representing base geometry.
 
     This class serves as a base class that can be inherited by other classes
     to provide common geometry functionality.
