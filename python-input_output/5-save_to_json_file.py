@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This module contains a function for saving an object to a text file in JSON format.
+This module contains a function for saving an
+object to a text file in JSON format.
 """
 
 
