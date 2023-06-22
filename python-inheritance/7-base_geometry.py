@@ -3,7 +3,8 @@
 
 
 class BaseGeometry:
-    """A class with public instance methods area and integer_validator"""
+    """A class with public instance methods area
+    and integer_validator"""
 
     def area(self):
         """Method that raises an Exception with a message"""
