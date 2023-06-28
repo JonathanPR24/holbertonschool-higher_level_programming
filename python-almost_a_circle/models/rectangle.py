@@ -6,7 +6,6 @@ This module contains the Base class.
 
 from models.base import Base
 
-
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base
@@ -24,11 +23,12 @@ class Rectangle(Base):
             id (int, optional): id to assign to the instance. Defaults to None.
         """
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
+    # Getter and setter for width
     @property
     def width(self):
         """Get the width of the rectangle"""
@@ -37,12 +37,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Set the width of the rectangle"""
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
         self.__width = value
 
+    # Getter and setter for height
     @property
     def height(self):
         """Get the height of the rectangle"""
@@ -51,12 +48,9 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """Set the height of the rectangle"""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
         self.__height = value
 
+    # Getter and setter for x-coordinate
     @property
     def x(self):
         """Get the x-coordinate of the rectangle's position"""
@@ -65,12 +59,9 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Set the x-coordinate of the rectangle's position"""
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        elif value < 0:
-            raise ValueError("x must be >= 0")
         self.__x = value
 
+    # Getter and setter for y-coordinate
     @property
     def y(self):
         """Get the y-coordinate of the rectangle's position"""
@@ -79,8 +70,4 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Set the y-coordinate of the rectangle's position"""
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        elif value < 0:
-            raise ValueError("y must be >= 0")
         self.__y = value
