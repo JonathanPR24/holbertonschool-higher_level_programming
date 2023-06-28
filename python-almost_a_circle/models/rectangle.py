@@ -188,3 +188,18 @@ class Rectangle(Base):
             self.x = args[3]
         if len(args) > 4:
             self.y = args[4]
+    def update(self, *args, **kwargs):
+        """
+        Assigns key/value arguments to the attributes.
+
+        Args:
+            *args: Arguments to assign to the attributes.
+            **kwargs: Key-value arguments to assign to the attributes.
+        """
+        if args and len(args) > 0:
+            self.id = args[0]
+            args = args[1:]  # Skip the first argument if it exists
+
+        if kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
