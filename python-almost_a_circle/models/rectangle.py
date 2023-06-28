@@ -157,3 +157,12 @@ class Rectangle(Base):
             str: The string representation of the Rectangle.
         """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+    def display(self):
+        """
+        Prints the Rectangle instance using the '#' character, taking into account the x and y coordinates.
+        """
+        for _ in range(self.__y):
+            print()
+
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
