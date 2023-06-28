@@ -24,11 +24,6 @@ class Rectangle(Base):
             id (int, optional): The ID of the rectangle. Defaults to None.
         """
         super().__init__(id)
-        self.__width = None
-        self.__height = None
-        self.__x = None
-        self.__y = None
-
         self.width = width
         self.height = height
         self.x = x
