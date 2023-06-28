@@ -1,21 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
-This module contains the definition of the Base class.
+This module contains the Base class.
 """
 
 
 class Base:
     """
-    The Base class serves as the foundation for other classes in the project.
-    It manages the `id` attribute and provides a constructor
-    to assign unique values to it.
+    Base class
     """
-
     __nb_objects = 0
 
     def __init__(self, id=None):
         """
-        Initializes a new instance of the Base class.
+        Initialize Base instance
+
+        Args:
+            id (int, optional): id to assign to the instance. Defaults to None.
         """
         if id is not None:
             self.id = id
