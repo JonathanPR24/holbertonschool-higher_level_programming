@@ -3,7 +3,6 @@
 This module contains the Base class.
 """
 
-
 import json
 
 
@@ -65,8 +64,7 @@ class Base:
             None
         """
         filename = cls.__name__ + ".json"
-        list_dicts = [obj.to_dictionary() for obj in list_objs] 
-        if list_objs is not None else []
+        list_dicts = [obj.to_dictionary() for obj in list_objs] if list_objs is not None else []
         json_string = cls.to_json_string(list_dicts)
         with open(filename, 'w') as file:
             file.write(json_string)
