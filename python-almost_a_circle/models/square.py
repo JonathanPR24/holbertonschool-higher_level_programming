@@ -3,65 +3,69 @@
 This module contains the Base class.
 """
 
-
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
     """
-    Square class that inherits from Rectangle.
+    Square class
     """
 
     def __init__(self, size, x=0, y=0, id=None):
         """
-        Initializes a Square instance.
+        Initialize Square instance
 
         Args:
-            size (int): The size of the square.
-            x (int, optional): The x-coordinate of the square's position. Defaults to 0.
-            y (int, optional): The y-coordinate of the square's position. Defaults to 0.
-            id (int, optional): The ID of the square. Defaults to None.
+            size (int): size of the Square (both width and height)
+            x (int, optional): x of the Square. Defaults to 0.
+            y (int, optional): y of the Square. Defaults to 0.
+            id (int, optional): id of the Square. Defaults to None.
         """
         super().__init__(size, size, x, y, id)
 
-    def __str__(self):
-        """
-        Returns the string representation of the Square.
-
-        Returns:
-            str: The string representation of the Square.
-        """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
-     @property
+    @property
     def size(self):
         """
-        Getter for size.
+        Getter for size
         """
         return self.width
 
     @size.setter
     def size(self, value):
         """
-        Setter for size.
+        Setter for size
 
         Args:
-            value (int): The value to set as the size of the square.
+            value (int): value to set size to
         """
-        self.width = value
-        self.height = value
+        self.width = self.height = value
+
+    def __str__(self):
+        """
+        Method to print the string representation of the Square
+        """
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     def update(self, *args, **kwargs):
         """
-        Updates the attributes of the Square.
+        Method to update the attributes of the Square
 
         Args:
-            *args: Non-keyworded arguments.
-            **kwargs: Keyworded arguments.
+            *args (tuple): non-keyword arguments
+            **kwargs (dict): keyword arguments
         """
         attributes = ["id", "size", "x", "y"]
         if args:
             for i, value in enumerate(args):
-                setattr(self, attributes[i], value)
+                if i < len(attributes):
+                    setattr(self, attributes[i], value)
         elif kwargs:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key in attributes:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Method that returns the dictionary representation of a Square
+        """
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
