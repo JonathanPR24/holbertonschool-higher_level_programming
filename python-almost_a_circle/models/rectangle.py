@@ -48,7 +48,7 @@ class Rectangle(Base):
 
         Args:
             value (int): The value to set as the width.
-
+        
         Raises:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than or equal to 0.
@@ -73,7 +73,7 @@ class Rectangle(Base):
 
         Args:
             value (int): The value to set as the height.
-
+        
         Raises:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than or equal to 0.
@@ -98,7 +98,7 @@ class Rectangle(Base):
 
         Args:
             value (int): The value to set as the x-coordinate.
-
+        
         Raises:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than 0.
@@ -123,7 +123,7 @@ class Rectangle(Base):
 
         Args:
             value (int): The value to set as the y-coordinate.
-
+        
         Raises:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than 0.
@@ -145,14 +145,10 @@ class Rectangle(Base):
 
     def display(self):
         """
-        Prints the Rectangle instance using the '#' character, taking into account the x and y coordinates.
+        Prints the Rectangle instance using the '#' character.
         """
-        for _ in range(self.__y):
-            print()
-
         for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
-
+            print("#" * self.__width)
     def __str__(self):
         """
         Returns the string representation of the Rectangle instance.
@@ -161,8 +157,16 @@ class Rectangle(Base):
             str: The string representation of the Rectangle.
         """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+    def display(self):
+        """
+        Prints the Rectangle instance using the '#' character, taking into account the x and y coordinates.
+        """
+        for _ in range(self.__y):
+            print()
 
-    def update(self, *args, **kwargs):
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
+    def update(self, *args):
         """
         Assigns arguments to each attribute in the specified order:
         1st argument: id attribute
@@ -170,6 +174,23 @@ class Rectangle(Base):
         3rd argument: height attribute
         4th argument: x attribute
         5th argument: y attribute
+
+        Args:
+            *args: Arguments to assign to the attributes.
+        """
+        if len(args) > 0:
+            self.id = args[0]
+        if len(args) > 1:
+            self.width = args[1]
+        if len(args) > 2:
+            self.height = args[2]
+        if len(args) > 3:
+            self.x = args[3]
+        if len(args) > 4:
+            self.y = args[4]
+    def update(self, *args, **kwargs):
+        """
+        Assigns key/value arguments to the attributes.
 
         Args:
             *args: Arguments to assign to the attributes.
@@ -192,8 +213,8 @@ class Rectangle(Base):
         """
         return {
             "id": self.id,
-            "width": self.__width,
-            "height": self.__height,
-            "x": self.__x,
-            "y": self.__y
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
         }
