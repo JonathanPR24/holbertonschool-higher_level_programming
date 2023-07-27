@@ -1,37 +1,43 @@
-#!/usr/bin/env python3
-import MySQLdb
+#!/usr/bin/python3
+
 import sys
+import MySQLdb
 
-def list_states(username, password, database):
-    # Connect to the MySQL server running on localhost at port 3306
+def list_states(username, password, database_name):
     try:
-        conn = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
-        cursor = conn.cursor()
-        
-        # Execute the query to fetch all states in ascending order by states.id
-        query = "SELECT id, name FROM states ORDER BY id ASC"
-        cursor.execute(query)
+        # Connect to the MySQL server using a context manager
+        with MySQLdb.connect(
+            host="localhost",
+            user=username,
+            passwd=password,
+            db=database_name,
+            port=3306
+        ) as db:
 
-        # Fetch and display the results
-        results = cursor.fetchall()
-        for row in results:
-            print(row)
+            # Create a cursor using a context manager
+            with db.cursor() as cursor:
+                # Execute the SQL query to retrieve all states from the table
+                # in ascending order by id
+                cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+                # Fetch all rows from the result set
+                rows = cursor.fetchall()
+
+                # Display the results
+                for row in rows:
+                    print(row)
 
     except MySQLdb.Error as e:
-        print(f"Error connecting to MySQL server: {e}")
-        sys.exit(1)
-    finally:
-        # Close the database connection
-        cursor.close()
-        conn.close()
+        # If there is an error, print the error message
+        print("Error:", e)
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: ./0-select_states.py <mysql_username> <mysql_password> <database_name>")
+        print("Usage: python script_name.py <username> <password> <db_name>")
         sys.exit(1)
 
     username = sys.argv[1]
     password = sys.argv[2]
-    database = sys.argv[3]
-    
-    list_states(username, password, database)
+    database_name = sys.argv[3]
+
+    list_states(username, password, database_name)
