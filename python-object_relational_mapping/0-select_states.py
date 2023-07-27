@@ -4,32 +4,43 @@ import sys
 import MySQLdb
 
 def list_states(username, password, database_name):
+    db = None
+    cursor = None
+
     try:
-        # Connect to the MySQL server using a context manager
-        with MySQLdb.connect(
+        # Connect to the MySQL server
+        db = MySQLdb.connect(
             host="localhost",
             user=username,
             passwd=password,
             db=database_name,
             port=3306
-        ) as db:
+        )
 
-            # Create a cursor using a context manager
-            with db.cursor() as cursor:
-                # Execute the SQL query to retrieve all states from the table
-                # in ascending order by id
-                cursor.execute("SELECT * FROM states ORDER BY id ASC")
+        # Create a cursor to interact with the database
+        cursor = db.cursor()
 
-                # Fetch all rows from the result set
-                rows = cursor.fetchall()
+        # Execute the SQL query to retrieve all states from the table
+        # in ascending order by id
+        cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-                # Display the results
-                for row in rows:
-                    print(row)
+        # Fetch all rows from the result set
+        rows = cursor.fetchall()
+
+        # Display the results
+        for row in rows:
+            print(row)
 
     except MySQLdb.Error as e:
         # If there is an error, print the error message
         print("Error:", e)
+
+    finally:
+        # Close the cursor and database connection
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
