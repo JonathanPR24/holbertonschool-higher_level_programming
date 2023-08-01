@@ -2,7 +2,7 @@
 
 # Import necessary libraries
 import sys
-import mysql.connector
+import MySQLdb
 
 # Define the main function to list states from the database
 def list_states(username, password, database_name):
