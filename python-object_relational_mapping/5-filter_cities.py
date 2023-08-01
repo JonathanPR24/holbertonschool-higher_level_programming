@@ -5,7 +5,7 @@ Script that lists all cities of a specific state from the database hbtn_0e_4_usa
 import MySQLdb
 import sys
 
-def list_cities_of_state(username, password, database_name, state_name):
+def filter_cities_by_state(username, password, database_name, state_name):
     try:
         # Connect to the MySQL server
         db = MySQLdb.connect(
@@ -20,16 +20,15 @@ def list_cities_of_state(username, password, database_name, state_name):
         cursor = db.cursor()
 
         # Use parameterized query to prevent SQL injection
-        query = "SELECT cities.id, cities.name, states.name FROM cities \
-                 JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id"
+        query = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id"
         cursor.execute(query, (state_name,))
 
         # Fetch all rows from the result set
         rows = cursor.fetchall()
 
         # Display the results
-        for row in rows:
-            print(row)
+        cities = [row[0] for row in rows]
+        print(", ".join(cities))
 
     except MySQLdb.Error as e:
         # If there is an error, print the error message
@@ -55,4 +54,4 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     # Call the function to list all cities of the specific state from the database
-    list_cities_of_state(username, password, database_name, state_name)
+    filter_cities_by_state(username, password, database_name, state_name)
