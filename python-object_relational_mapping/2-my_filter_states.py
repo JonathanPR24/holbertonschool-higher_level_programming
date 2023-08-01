@@ -20,9 +20,9 @@ def filter_states_by_name(username, password, database_name, state_name):
         # Create a cursor object to interact with the database
         cursor = db.cursor()
 
-        # Execute the SQL query to retrieve states matching the provided name
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id"
-        cursor.execute(query, (state_name,))
+        # Use format to create the SQL query with user input
+        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(state_name)
+        cursor.execute(query)
 
         # Fetch all rows from the result set
         rows = cursor.fetchall()
