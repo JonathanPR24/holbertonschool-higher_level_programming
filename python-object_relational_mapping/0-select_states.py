@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
+# Import necessary libraries
 import sys
 import mysql.connector
 
+# Define the main function to list states from the database
 def list_states(username, password, database_name):
     try:
         # Connect to the MySQL server
@@ -18,7 +20,8 @@ def list_states(username, password, database_name):
         cursor = db.cursor()
 
         # Execute the SQL query to retrieve all states from the table in ascending order by id
-        cursor.execute("SELECT * FROM states ORDER BY id ASC")
+        query = "SELECT * FROM states ORDER BY id ASC"
+        cursor.execute(query)
 
         # Fetch all rows from the result set
         rows = cursor.fetchall()
@@ -36,6 +39,7 @@ def list_states(username, password, database_name):
         cursor.close()
         db.close()
 
+# Check if the script is run as the main module
 if __name__ == "__main__":
     # Check if all three arguments are provided (username, password, database name)
     if len(sys.argv) != 4:
