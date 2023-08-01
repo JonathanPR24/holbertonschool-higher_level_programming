@@ -8,11 +8,11 @@ import MySQLdb
 def list_states(username, password, database_name):
     try:
         # Connect to the MySQL server
-        db = mysql.connector.connect(
+        db = MySQLdb.connect(
             host="localhost",
             user=username,
-            password=password,
-            database=database_name,
+            passwd=password,
+            db=database_name,
             port=3306
         )
 
@@ -30,7 +30,7 @@ def list_states(username, password, database_name):
         for row in rows:
             print(row)
 
-    except mysql.connector.Error as e:
+    except MySQLdb.Error as e:
         # If there is an error, print the error message
         print("Error:", e)
 
