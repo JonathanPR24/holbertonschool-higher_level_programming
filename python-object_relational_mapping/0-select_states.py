@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Import necessary libraries
+"""Import necessary libraries"""
 import sys
 import MySQLdb
 
